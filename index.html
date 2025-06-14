@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harbor AI - Professional Websites with Smart Features | Bradley Beach, NJ</title>
+    <meta name="description" content="Professional websites with AI features for small businesses in Bradley Beach, Staten Island & NJ. Starting at $500. Veteran-owned with 20+ years reliable service.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #031227 0%, #0f172a 100%);
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(3, 18, 39, 0.9), rgba(15, 23, 42, 0.8)), url('https://cdn1.genspark.ai/user-upload-image/5_generated/353adeea-e6cf-4fde-87dc-2172cc5a7b2d');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .tech-graphic-bg {
+            background: linear-gradient(135deg, rgba(3, 18, 39, 0.95), rgba(15, 23, 42, 0.9)), url('https://cdn1.genspark.ai/user-upload-image/5_generated/06e386bb-a3ec-4fa6-90e9-6dfc8a600fdd');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .service-card {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+            border-color: #38bdf8;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .electric-effect {
+            position: relative;
+        }
+        
+        .electric-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 136, 0.1) 50%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .electric-effect:hover::after {
+            opacity: 1;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #38bdf8, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .orange-accent {
+            color: #ff6b35;
+        }
+        
+        .blue-accent {
+            color: #38bdf8;
+        }
+        
+        .green-accent {
+            color: #00ff88;
+        }
+        
+        .section-bg {
+            background: linear-gradient(145deg, #0f172a, #1e293b);
+        }
+        
+        .section-dark {
+            background: linear-gradient(145deg, #0a0f1c, #1e293b);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+        }
+        
+        .icon-glow {
+            filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
+        }
+        
+        .circuit-bg {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%);
+        }
+        
+        .nav-link {
+            color: #ffffff;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+            background: rgba(15, 23, 42, 0.3);
+        }
+        
+        .nav-link:hover {
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.1);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        
+        .popular-badge span {
+            background: #ff6b35;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+            border: 2px solid #ff6b35;
+            white-space: nowrap;
+            display: inline-block;
+        }
+        
+        .service-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .card-header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-top: 16px;
+        }
+        
+        .card-header.with-badge {
+            padding-top: 32px;
+        }
+        
+        .card-features {
+            flex-grow: 1;
+        }
+        
+        .who-we-help-card {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .who-we-help-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.15);
+            border-color: #38bdf8;
+        }
+        
+        .who-we-help-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .who-we-help-card:hover::before {
+            left: 100%;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.15);
+            border-color: #38bdf8;
+        }
+        
+        .testimonial-quote {
+            font-size: 3rem;
+            color: #38bdf8;
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #38bdf8;
+            margin-bottom: 0.25rem;
+        }
+        
+        .testimonial-title {
+            color: #ff6b35;
+            font-size: 0.9rem;
+        }
+
+        .how-it-works-card {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .how-it-works-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.15);
+            border-color: #38bdf8;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.15);
+            border-color: #38bdf8;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #334155, #475569);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 3rem;
+        }
+
+        .contact-form {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-input {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid #475569;
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #f8fafc;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: #64748b;
+        }
+
+        .contact-info-section {
+            background: linear-gradient(145deg, #0f172a, #1e293b);
+            border: 1px solid #475569;
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            text-align: center;
+        }
+
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid #475569;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.1);
+            border-color: #38bdf8;
+        }
+
+        .contact-method i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-method .contact-label {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #f8fafc;
+        }
+
+        .contact-method .contact-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method .contact-value:hover {
+            transform: scale(1.05);
+        }
+
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(3, 18, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 16px;
+            z-index: 1000;
+            border-top: 1px solid #475569;
+        }
+        
+        @media (max-width: 767px) {
+            .mobile-cta-bar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .popular-badge {
+                position: static;
+                transform: none;
+                margin-bottom: 16px;
+                text-align: center;
+                top: auto;
+                left: auto;
+            }
+            
+            .card-header.with-badge {
+                padding-top: 16px;
+            }
+            
+            .testimonial-quote {
+                font-size: 2rem;
+                top: 5px;
+                left: 15px;
+            }
+
+            .contact-form {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .contact-info-section {
+                padding: 2rem;
+            }
+
+            .contact-method {
+                padding: 1rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .service-cards-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="circuit-bg">
+    <!-- Header -->
+    <header class="relative z-10 py-3 section-dark">
+        <div class="container mx-auto px-6">
+            <nav class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-gradient">Harbor AI</div>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#testimonials" class="nav-link">Testimonials</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg py-16 relative">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    Welcome to <span class="text-gradient">Harbor AI</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-6 text-gray-300">
+                    We build websites with smart features built in. Need a digital presence? We've got you covered.
+                </p>
+                <p class="text-lg mb-10 text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                    Hi, I'm Michael Gargiso. After 20+ years with the FDNY, I help local businesses get online with websites that actually work for them. Whether you need something simple or want to add some smart automation, I'll build something that fits your business.
+                </p>
+                <a href="#contact" class="cta-button text-white font-semibold py-4 px-8 rounded-lg inline-flex items-center">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Get Started Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 section-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Website Solutions That Fit Your Needs</h2>
+                <p class="text-xl text-gray-400">Choose the package that fits your business needs</p>
+            </div>
+            
+            <div class="service-cards-container">
+                <!-- Professional Website -->
+                <div class="service-card electric-effect rounded-lg relative">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <i class="fas fa-globe icon-glow blue-accent text-4xl mb-4" alt="Website design icon"></i>
+                            <h3 class="text-2xl font-bold mb-2">Professional Website</h3>
+                            <div class="text-3xl font-bold blue-accent mb-2">$500 <span class="text-sm text-gray-400">setup</span></div>
+                            <div class="text-xl orange-accent">+ $150/month</div>
+                        </div>
+                        <div class="card-features">
+                            <p class="font-semibold green-accent mb-4">Perfect for getting online:</p>
+                            <div class="space-y-3">
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Clean, mobile-friendly design</div>
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Easy contact forms</div>
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Hours, services, and contact info</div>
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Fast loading and secure hosting</div>
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Great for restaurants, retail, service businesses</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Business Website -->
+                <div class="service-card electric-effect rounded-lg border-2 border-orange-accent relative">
+                    <div class="popular-badge">
+                        <span>Most Popular</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header with-badge">
+                            <i class="fas fa-brain icon-glow orange-accent text-4xl mb-4" alt="Smart business icon"></i>
+                            <h3 class="text-2xl font-bold mb-2">Smart Business Website</h3>
+                            <div class="text-3xl font-bold blue-accent mb-2">$800 <span class="text-sm text-gray-400">setup</span></div>
+                            <div class="text-xl orange-accent">+ $250/month</div>
+                        </div>
+                        <div class="card-features">
+                            <p class="font-semibold green-accent mb-4">Everything above, plus smart features:</p>
+                            <div class="space-y-3">
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Online appointment booking</div>
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Automated email follow-ups</div>
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Customer review management</div>
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Basic lead tracking</div>
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Perfect for contractors, consultants, wellness pros</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI-Enhanced Business System -->
+                <div class="service-card electric-effect rounded-lg relative">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <i class="fas fa-robot icon-glow green-accent text-4xl mb-4" alt="AI technology icon"></i>
+                            <h3 class="text-2xl font-bold mb-2">AI-Enhanced Business System</h3>
+                            <div class="text-3xl font-bold blue-accent mb-2">$1200 <span class="text-sm text-gray-400">setup</span></div>
+                            <div class="text-xl orange-accent">+ $400/month</div>
+                        </div>
+                        <div class="card-features">
+                            <p class="font-semibold green-accent mb-4">For busy businesses that get lots of inquiries:</p>
+                            <div class="space-y-3">
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>AI chatbot answers common questions</div>
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Smart lead qualification</div>
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Advanced automation workflows</div>
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Analytics and reporting</div>
+                                <div class="flex items-center"><i class="fas fa-check green-accent mr-3"></i>Great for high-volume service businesses</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <p class="text-gray-400 italic">Additional services like logo design, promotional videos, and custom features available - just ask!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Help -->
+    <section class="py-16 section-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Who We Help</h2>
+                <p class="text-xl text-gray-400 mb-8">Serving small businesses throughout Bradley Beach, Staten Island, and the greater New Jersey area</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="who-we-help-card">
+                    <div class="mb-6">
+                        <i class="fas fa-store text-4xl mb-4 blue-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Local Businesses</h3>
+                    <p class="text-gray-400 leading-relaxed">Restaurants, retail shops, fitness studios</p>
+                    <div class="mt-4 pt-4 border-t border-gray-600">
+                        <div class="flex justify-center space-x-4 text-sm text-gray-500">
+                            <span><i class="fas fa-utensils mr-1"></i>Food</span>
+                            <span><i class="fas fa-shopping-bag mr-1"></i>Retail</span>
+                            <span><i class="fas fa-dumbbell mr-1"></i>Fitness</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="who-we-help-card">
+                    <div class="mb-6">
+                        <i class="fas fa-tools text-4xl mb-4 orange-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Service Professionals</h3>
+                    <p class="text-gray-400 leading-relaxed">Contractors, consultants, medical practices</p>
+                    <div class="mt-4 pt-4 border-t border-gray-600">
+                        <div class="flex justify-center space-x-4 text-sm text-gray-500">
+                            <span><i class="fas fa-hammer mr-1"></i>Trades</span>
+                            <span><i class="fas fa-briefcase mr-1"></i>Consulting</span>
+                            <span><i class="fas fa-user-md mr-1"></i>Medical</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="who-we-help-card">
+                    <div class="mb-6">
+                        <i class="fas fa-chart-line text-4xl mb-4 green-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Growing Companies</h3>
+                    <p class="text-gray-400 leading-relaxed">Anyone who needs their website to work harder</p>
+                    <div class="mt-4 pt-4 border-t border-gray-600">
+                        <div class="flex justify-center space-x-4 text-sm text-gray-500">
+                            <span><i class="fas fa-rocket mr-1"></i>Scaling</span>
+                            <span><i class="fas fa-users mr-1"></i>Teams</span>
+                            <span><i class="fas fa-trophy mr-1"></i>Success</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Innovation Section with Custom Graphic -->
+    <section class="tech-graphic-bg py-16 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold mb-6 text-gradient">Technology That Works For You</h2>
+                <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                    From simple websites to AI-powered business systems, we combine reliable service with cutting-edge technology to help your business thrive in the digital world.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 mt-12">
+                    <div class="text-center">
+                        <i class="fas fa-microchip blue-accent text-3xl mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">Smart Automation</h3>
+                        <p class="text-gray-400">AI-powered features that work around the clock</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-shield-alt orange-accent text-3xl mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">Reliable & Secure</h3>
+                        <p class="text-gray-400">Built with the same precision as 20+ years of service</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-chart-growth green-accent text-3xl mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">Business Growth</h3>
+                        <p class="text-gray-400">Solutions designed to help your business scale</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 section-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">How It Works</h2>
+                <p class="text-xl text-gray-400">Simple process, zero risk for you</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="how-it-works-card">
+                    <i class="fas fa-phone blue-accent text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-3">Free Consultation</h3>
+                    <p class="text-gray-400">We talk about your business needs and goals</p>
+                </div>
+                <div class="how-it-works-card">
+                    <i class="fas fa-code orange-accent text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-3">I Build Your Site First</h3>
+                    <p class="text-gray-400">No payment required - see exactly what you're getting</p>
+                </div>
+                <div class="how-it-works-card">
+                    <i class="fas fa-thumbs-up green-accent text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-3">You Decide</h3>
+                    <p class="text-gray-400">Love it? We go live. Don't love it? No charge.</p>
+                </div>
+                <div class="how-it-works-card">
+                    <i class="fas fa-rocket blue-accent text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-3">Launch + Support</h3>
+                    <p class="text-gray-400">Go live with ongoing monthly support included</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Local Projects -->
+    <section class="py-16 section-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Recent Local Projects</h2>
+                <p class="text-xl text-gray-400">See what we've built for businesses like yours</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-utensils text-orange-accent" alt="Sample restaurant website"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-white">Bradley Beach Restaurant</h3>
+                        <p class="text-gray-400">Simple, mobile-friendly site with menu and contact info</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-hammer text-blue-accent" alt="Sample contractor website"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-white">Staten Island Contractor</h3>
+                        <p class="text-gray-400">Smart business site with appointment booking system</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-user-md text-green-accent" alt="Sample medical website"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-white">NJ Medical Practice</h3>
+                        <p class="text-gray-400">AI-enhanced system with patient inquiry automation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Clients Say -->
+    <section id="testimonials" class="py-16 section-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">What Clients Say</h2>
+                <p class="text-xl text-gray-400">Real results from real local businesses</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left testimonial-quote"></i>
+                    <p class="testimonial-text text-gray-300">
+                        "Michael completely transformed our newsletter. His design skills and attention to detail have made our communications more professional and engaging. We've seen a significant increase in member engagement since working with Harbor AI."
+                    </p>
+                    <div class="testimonial-author">Woody Wall</div>
+                    <div class="testimonial-title">President, FDNY Staten Island Retirees</div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left testimonial-quote"></i>
+                    <p class="testimonial-text text-gray-300">
+                        "Finally have a website that actually works for my business. The appointment booking system saves me hours every week, and I'm getting more calls than ever. Michael made the whole process easy."
+                    </p>
+                    <div class="testimonial-author">Sarah M.</div>
+                    <div class="testimonial-title">Local Contractor</div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left testimonial-quote"></i>
+                    <p class="testimonial-text text-gray-300">
+                        "Our restaurant needed something simple but professional. Michael delivered exactly what we needed - customers can easily find our menu and hours. Great local service."
+                    </p>
+                    <div class="testimonial-author">Tony's Pizzeria</div>
+                    <div class="testimonial-title">Bradley Beach</div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left testimonial-quote"></i>
+                    <p class="testimonial-text text-gray-300">
+                        "The AI chatbot has been a game-changer. It answers customer questions even when we're closed and has helped us book appointments around the clock. Worth every penny."
+                    </p>
+                    <div class="testimonial-author">Dr. Jennifer K.</div>
+                    <div class="testimonial-title">Family Practice</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Harbor AI -->
+    <section class="py-16 section-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Why Choose Harbor AI?</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="text-center p-6">
+                    <i class="fas fa-shield-alt blue-accent text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Reliable Service</h3>
+                    <p class="text-gray-400">20+ years of FDNY experience taught me the importance of showing up and doing the job right.</p>
+                </div>
+                <div class="text-center p-6">
+                    <i class="fas fa-map-marker-alt orange-accent text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Local Focus</h3>
+                    <p class="text-gray-400">Based in Bradley Beach, serving businesses throughout New Jersey.</p>
+                </div>
+                <div class="text-center p-6">
+                    <i class="fas fa-hand-holding-heart green-accent text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">No Surprises</h3>
+                    <p class="text-gray-400">Transparent pricing, no hidden fees. What you see is what you pay.</p>
+                </div>
+                <div class="text-center p-6">
+                    <i class="fas fa-headset blue-accent text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Support When You Need It</h3>
+                    <p class="text-gray-400">I'm here to help when you have questions or need updates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Started -->
+    <section id="contact" class="py-20 section-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto mb-16">
+                <h2 class="text-4xl font-bold mb-6">Get Started</h2>
+                <p class="text-xl mb-6 text-gray-300">Ready to get your business online?</p>
+                <p class="text-lg mb-10 text-gray-400 leading-relaxed">
+                    I'll work with you to build something that fits your needs and budget. No pressure, no complicated tech talk - just a website that works for your business.
+                </p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h3 class="text-2xl font-bold text-center mb-8 text-gradient">Get Free Consultation</h3>
+                <form id="contact-form">
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold mb-2 text-gray-300">Name *</label>
+                            <input type="text" id="name" name="name" required class="form-input">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold mb-2 text-gray-300">Email *</label>
+                            <input type="email" id="email" name="email" required class="form-input">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold mb-2 text-gray-300">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="(347) 555-1234" class="form-input">
+                        </div>
+                        <div>
+                            <label for="service" class="block text-sm font-semibold mb-2 text-gray-300">What do you need?</label>
+                            <select id="service" name="service" class="form-input">
+                                <option value="new-website">New Website</option>
+                                <option value="website-updates">Website Updates</option>
+                                <option value="logo-design">Logo Design</option>
+                                <option value="ai-chatbot">AI Chatbot</option>
+                                <option value="not-sure">Not Sure - Let's Talk</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <label for="message" class="block text-sm font-semibold mb-2 text-gray-300">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell me about your business..." class="form-input resize-none"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="cta-button text-white font-semibold py-4 px-8 rounded-lg inline-flex items-center">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Get Free Consultation
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="contact-info-section">
+                <h3 class="text-2xl font-bold text-center mb-6 text-white">Ready to get started?</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="contact-method">
+                        <i class="fas fa-phone blue-accent"></i>
+                        <div class="contact-label">Call me:</div>
+                        <a href="tel:3472106441" class="contact-value orange-accent hover:underline">(347) 210-6441</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope green-accent"></i>
+                        <div class="contact-label">Or email:</div>
+                        <a href="mailto:harborai.dev@gmail.com" class="contact-value orange-accent hover:underline">harborai.dev@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center text-gray-400 italic">I typically respond within a few hours and can usually start your project within a week.</p>
+        </div>
+    </section>
+
+    <!-- About Michael -->
+    <section id="about" class="py-16 section-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">About Michael</h2>
+            </div>
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-6">
+                    <i class="fas fa-fire blue-accent text-4xl mb-6" alt="FDNY service badge"></i>
+                </div>
+                <p class="text-lg mb-6 text-gray-300 leading-relaxed">
+                    I'm a retired FDNY firefighter (Engine 158) who discovered a passion for helping local businesses succeed online. The same attention to detail and reliability I brought to the fire service, I now bring to building websites and digital solutions.
+                </p>
+                <p class="text-lg mb-6 text-gray-300 leading-relaxed">
+                    I live in Bradley Beach and understand what local businesses need - something that works, doesn't break the bank, and helps you serve your customers better. My background includes 20+ years with FDNY (E-158), which taught me the importance of reliability, precision, and being there when people need you most.
+                </p>
+                <p class="text-xl font-bold text-gradient">Let's build something great together.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta-bar">
+        <span class="text-sm text-white">Ready to get started?</span>
+        <div class="flex space-x-2">
+            <a href="tel:3472106441" class="bg-blue-accent text-white px-3 py-2 rounded text-sm font-semibold">
+                Call (347) 210-6441
+            </a>
+            <a href="#contact" class="bg-orange-accent text-white px-3 py-2 rounded text-sm font-semibold">
+                Get Quote
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-10 section-dark border-t border-gray-700">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="text-2xl font-bold text-gradient mb-4">Harbor AI</div>
+                <p class="text-gray-400 mb-4">Digital Solutions That Work</p>
+                <div class="flex justify-center space-x-8 mb-6">
+                    <div class="text-gray-400">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        Bradley Beach, NJ
+                    </div>
+                    <div class="text-gray-400">
+                        <i class="fas fa-phone mr-2"></i>
+                        (347) 210-6441
+                    </div>
+                    <div class="text-gray-400">
+                        <i class="fas fa-envelope mr-2"></i>
+                        harborai.dev@gmail.com
+                    </div>
+                </div>
+                <p class="text-gray-500 text-sm">&copy; 2024 Harbor AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I\'ll get back to you within a few hours.');
+        });
+    </script>
+</body>
+</html>
